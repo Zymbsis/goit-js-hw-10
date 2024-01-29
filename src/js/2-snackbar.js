@@ -31,8 +31,8 @@ form.addEventListener('submit', e => {
     }, delay);
   });
 
-  promise.then(
-    value => {
+  promise
+    .then(value => {
       console.log(value);
       createPopUp(
         `Fulfilled promise in ${delay}ms`,
@@ -42,8 +42,8 @@ form.addEventListener('submit', e => {
         secondIcon,
         '#59A10D'
       );
-    },
-    error => {
+    })
+    .catch(error => {
       console.log(error);
       createPopUp(
         `Rejected promise in ${delay}ms`,
@@ -53,8 +53,7 @@ form.addEventListener('submit', e => {
         secondIcon,
         '#EF4040'
       );
-    }
-  );
+    });
 
   form.reset();
 });
