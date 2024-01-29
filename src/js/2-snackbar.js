@@ -24,16 +24,16 @@ form.addEventListener('submit', e => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (isSuccess) {
-        resolve('Success! Value passed to resolve function');
+        resolve(`✅ Fulfilled promise in ${delay}ms`);
       } else {
-        reject('Error! Error passed to reject function');
+        reject(`❌ Rejected promise in ${delay}ms`);
       }
     }, delay);
   });
 
   promise.then(
     value => {
-      console.log(`✅ Fulfilled promise in ${delay}ms`);
+      console.log(value);
       createPopUp(
         `Fulfilled promise in ${delay}ms`,
         '#326101',
@@ -44,7 +44,7 @@ form.addEventListener('submit', e => {
       );
     },
     error => {
-      console.log(`❌ Rejected promise in ${delay}ms`);
+      console.log(error);
       createPopUp(
         `Rejected promise in ${delay}ms`,
         '#B51B1B',
